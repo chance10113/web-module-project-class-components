@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import ToDoList from "./components/TodoList"
-import ToDoForm from "./components/TodoForm"
+import ToDoList from "./components/TodoList";
+import ToDoForm from "./components/TodoForm";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -13,10 +13,42 @@ class App extends React.Component {
       toDos: toDos,
     };
   }
+
+  crossOff = (clickedToDoId) => {
+    const newToDos = this.state.toDos.map((toDo) => {
+      if (toDo.id === clickedToDoId) {
+        return {
+          ...toDo,
+          completed: !toDo.completed,
+        };
+      } else {
+        return toDo;
+      }
+    });
+    this.setState({
+      toDos: newToDos,
+    });
+  };
+
+  addToDo = () => {
+    const newToDo = {
+      name: toDoName,
+      id: new Date(),
+      completed: false,
+    };
+    this.setState({
+      toDos: [...this.state.toDos, newToDo],
+    });
+  };
+
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <div>
+          <h1> TO-DO APPLICATION </h1>
+          <ToDoForm addToDo={this.addToDo} />
+        </div>
+        <ToDoList crossOff={this.crossOff} toDos={this.state.toDos} />
       </div>
     );
   }
