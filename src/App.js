@@ -53,7 +53,7 @@ class App extends React.Component {
     });
   };
 
-  addToDo = () => {
+  addToDo = (toDoName) => {
     const newToDo = {
       name: toDoName,
       id: new Date(),
