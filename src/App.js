@@ -3,6 +3,29 @@ import React from "react";
 import ToDoList from "./components/TodoList";
 import ToDoForm from "./components/TodoForm";
 
+const toDos = [
+  {
+    task: "Take medicine",
+    id: 0,
+    completed: false,
+  },
+  {
+    task: "Login to Canvas",
+    id: 1,
+    completed: false,
+  },
+  {
+    task: "Get some water",
+    id: 2,
+    completed: false,
+  },
+  {
+    task: "Do warmups",
+    id: 3,
+    completed: false,
+  },
+]
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
